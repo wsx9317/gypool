@@ -27,6 +27,8 @@ class UiColor {
   static const Color white20per = Color.fromRGBO(255, 255, 255, 0.2);
   static const Color white10per = Color.fromRGBO(255, 255, 255, 0.1);
 
+ static const Color red = Color.fromRGBO(242, 0, 20, 1);
+ 
   // App Colors
   static const Color primary = Color.fromRGBO(63, 111, 216, 1);
   static const Color background = Color.fromRGBO(246, 247, 251, 1);

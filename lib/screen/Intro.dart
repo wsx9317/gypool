@@ -74,7 +74,7 @@ class _IntroState extends State<Intro> {
               top: ScreenUtil.screenHeight * 0.57,
               child: ButoonWidget(
                 onTap: () {
-                  Navigator.pushReplacementNamed(context, "/$PAGE_HOME_PAGE");
+                  Navigator.pushReplacementNamed(context, "/$PAGE_LOGIN_PAGE");
                 },
                 child: Container(
                   width: ScreenUtil.screenWidth,

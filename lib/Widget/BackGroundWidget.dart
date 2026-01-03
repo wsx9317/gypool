@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:gypool/common/utils.dart';
 
 class BackgroundWidget extends StatefulWidget {
-  final PreferredSizeWidget? appBar;
+  final Widget? appBar;
   final Widget bodyChild;
   final Color backgroundColor;
-  final Widget footerChild;
+  final Widget? footerChild;
   final Widget? alertChild;
   final bool? isAlert;
   final Color? alertBackgroundColor;
@@ -32,17 +32,19 @@ class _BackgroundWidgetState extends State<BackgroundWidget> {
     return Stack(
       children: [
         Scaffold(
-          appBar: widget.appBar,
           backgroundColor: widget.backgroundColor,
-          body: Container(
-            width: ScreenUtil.screenWidth,
-            height: ScreenUtil.screenHeight,
-            padding: EdgeInsets.symmetric(
-              horizontal: widget.horizontalPadding ?? 0,
-            ),
-            child: widget.bodyChild,
+          body: Stack(
+            children: [
+              Container(
+                width: ScreenUtil.screenWidth,
+                height: ScreenUtil.screenHeight,
+                padding: EdgeInsets.symmetric(horizontal: widget.horizontalPadding ?? 0.0),
+                child: widget.bodyChild,
+              ),
+              Positioned(top: 0, left: 0, right: 0, child: widget.appBar ?? SizedBox()),
+              Positioned(bottom: 0, left: 0, right: 0, child: widget.footerChild ?? SizedBox()),
+            ],
           ),
-          bottomNavigationBar: widget.footerChild,
         ),
         if (widget.isAlert ?? false)
           Scaffold(
@@ -50,12 +52,8 @@ class _BackgroundWidgetState extends State<BackgroundWidget> {
             body: Container(
               width: ScreenUtil.screenWidth,
               height: ScreenUtil.screenHeight,
-              padding: EdgeInsets.symmetric(
-                horizontal: widget.horizontalPadding ?? 0,
-              ),
-              child: Column(
-                children: [Spacer(), widget.alertChild ?? SizedBox(), Spacer()],
-              ),
+              padding: EdgeInsets.symmetric(horizontal: widget.horizontalPadding ?? 0),
+              child: Column(children: [Spacer(), widget.alertChild ?? SizedBox(), Spacer()]),
             ),
           ),
       ],

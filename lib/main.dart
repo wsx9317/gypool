@@ -6,6 +6,7 @@ import 'package:gypool/common/utils.dart';
 import 'package:gypool/constants/constants.dart';
 import 'package:gypool/screen/Home.dart';
 import 'package:gypool/screen/Intro.dart';
+import 'package:gypool/screen/Login.dart';
 import 'package:provider/provider.dart';
 
 Future<void> main() async {
@@ -58,6 +59,7 @@ class MyApp extends StatelessWidget {
         routes: {
           "/$PAGE_INTRO_PAGE": (context) => const Intro(),
           "/$PAGE_HOME_PAGE": (context) => const Home(),
+          "/$PAGE_LOGIN_PAGE": (context) => const Login(),
         },
         home: Builder(
           builder: (BuildContext context) {
