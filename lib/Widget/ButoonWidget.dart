@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class ButoonWidget extends StatefulWidget {
+class ButtonWidget extends StatefulWidget {
   final Function()? onTap;
   final Function()? onLongPress;
   final Function()? onLongPressEnd;
   final Function()? onDoubleTap;
   final Widget child;
-  const ButoonWidget({
+  const ButtonWidget({
     super.key,
     this.onTap,
     this.onLongPress,
@@ -16,10 +16,10 @@ class ButoonWidget extends StatefulWidget {
   });
 
   @override
-  State<ButoonWidget> createState() => _ButoonWidgetState();
+  State<ButtonWidget> createState() => _ButtonWidgetState();
 }
 
-class _ButoonWidgetState extends State<ButoonWidget> {
+class _ButtonWidgetState extends State<ButtonWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

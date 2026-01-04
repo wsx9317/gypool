@@ -72,7 +72,7 @@ class _IntroState extends State<Intro> {
             //버튼
             Positioned(
               top: ScreenUtil.screenHeight * 0.57,
-              child: ButoonWidget(
+              child: ButtonWidget(
                 onTap: () {
                   Navigator.pushReplacementNamed(context, "/$PAGE_LOGIN_PAGE");
                 },
