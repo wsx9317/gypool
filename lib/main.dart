@@ -7,6 +7,9 @@ import 'package:gypool/constants/constants.dart';
 import 'package:gypool/screen/Home.dart';
 import 'package:gypool/screen/Intro.dart';
 import 'package:gypool/screen/Login.dart';
+import 'package:gypool/screen/Register.dart';
+import 'package:gypool/screen/SerchId.dart';
+import 'package:gypool/screen/SerchPw.dart';
 import 'package:provider/provider.dart';
 
 Future<void> main() async {
@@ -60,6 +63,9 @@ class MyApp extends StatelessWidget {
           "/$PAGE_INTRO_PAGE": (context) => const Intro(),
           "/$PAGE_HOME_PAGE": (context) => const Home(),
           "/$PAGE_LOGIN_PAGE": (context) => const Login(),
+          "/$PAGE_REGISTER_PAGE": (context) => const Register(),
+          "/$PAGE_SERCH_ID_PAGE": (context) => const SerchId(),
+          "/$PAGE_SERCH_PW_PAGE": (context) => const SerchPw(),
         },
         home: Builder(
           builder: (BuildContext context) {

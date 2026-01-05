@@ -4,8 +4,10 @@ import 'package:gypool/Widget/BackGroundWidget.dart';
 import 'package:gypool/Widget/ButoonWidget.dart';
 import 'package:gypool/Widget/InputValidationWidget.dart';
 import 'package:gypool/Widget/SpaceWidget.dart';
+import 'package:gypool/Widget/TextWidget.dart';
 import 'package:gypool/common/utils.dart';
 import 'package:gypool/constants/constants.dart';
+import 'package:gypool/screen/popup/Alert.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -15,13 +17,17 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  bool isAlertShow = false;
+  bool isAlertShow = true;
+  String alertTitle = '';
+  String alertMessage = '';
   TextEditingController idController = TextEditingController();
   TextEditingController pwController = TextEditingController();
 
   @override
   void initState() {
     super.initState();
+    alertTitle = '로그인 실패';
+    alertMessage = '아이디 또는 비밀번호를\n다시 확인해주세요';
   }
 
   @override
@@ -58,6 +64,21 @@ class _LoginState extends State<Login> {
       validationVisible: false,
       vlaidationCheck: false,
       enabledBool: true,
+    );
+  }
+
+  Widget textBtn(Function() onTap, String message) {
+    return ButtonWidget(
+      onTap: onTap,
+      child: Textwidget(
+        text: message,
+        fontSize: 14,
+        fontSpacing: 0,
+        fontHeight: 1.2,
+        fontWeight: FontWeight.w400,
+        fontColor: UiColor.primary,
+        textAlign: TextAlign.right,
+      ),
     );
   }
 
@@ -114,14 +135,39 @@ class _LoginState extends State<Login> {
                 ),
               ),
             ),
+            SpaceWidget(width: 0, height: 15),
+            Row(
+              children: [
+                textBtn(() {}, '아이디 찾기/비밀번호 찾기'),
+                const Spacer(),
+                textBtn(() {
+                  Navigator.pushNamed(context, "/$PAGE_REGISTER_PAGE");
+                }, '회원가입'),
+              ],
+            ),
           ],
         ),
       ),
       backgroundColor: UiColor.background,
       footerChild: SizedBox(),
       isAlert: isAlertShow,
-      alertBackgroundColor: UiColor.black30Per,
-      alertChild: SizedBox(),
+      alertBackgroundColor: UiColor.black40Per,
+      alertChild: Alert(
+        type: 2,
+        title: alertTitle,
+        message: alertMessage,
+        buttonText1: '확인',
+        closeFunction: () {
+          setState(() {
+            isAlertShow = false;
+          });
+        },
+        buttonFunction1: () {
+          setState(() {
+            isAlertShow = false;
+          });
+        },
+      ),
     );
   }
 }
