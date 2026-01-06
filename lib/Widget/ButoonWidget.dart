@@ -22,16 +22,19 @@ class ButtonWidget extends StatefulWidget {
 class _ButtonWidgetState extends State<ButtonWidget> {
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: widget.onTap ?? () {},
-      onLongPress: widget.onLongPress ?? () {},
-      onDoubleTap: widget.onDoubleTap ?? () {},
-      onLongPressEnd: widget.onLongPressEnd != null
-          ? (details) {
-              widget.onLongPressEnd!();
-            }
-          : null,
-      child: widget.child,
+    return MouseRegion(
+      cursor: SystemMouseCursors.click,
+      child: GestureDetector(
+        onTap: widget.onTap ?? () {},
+        onLongPress: widget.onLongPress ?? () {},
+        onDoubleTap: widget.onDoubleTap ?? () {},
+        onLongPressEnd: widget.onLongPressEnd != null
+            ? (details) {
+                widget.onLongPressEnd!();
+              }
+            : null,
+        child: widget.child,
+      ),
     );
   }
 }

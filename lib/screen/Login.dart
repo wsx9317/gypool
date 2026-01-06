@@ -17,7 +17,7 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  bool isAlertShow = true;
+  bool isAlertShow = false;
   String alertTitle = '';
   String alertMessage = '';
   TextEditingController idController = TextEditingController();
